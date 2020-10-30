@@ -1,0 +1,177 @@
+---
+title: Assembler des images jpeg en pdf sur ordinateur
+subtitle: (sous Windows essentiellement)
+date: 2020-05-13
+tags:
+- pc
+- pdf
+- jpg
+- scan
+summary: Comment passer d'images de pages manuscrites (scannées ou photographiées) à un PDF ? Sur un PC il existe plusieurs solutions, ici on présente NAPS2, CIB PDF Brewer ainsi que quelques autres outils. Il y a aussi quelques pour les geeks des logicels en ligne de commande et des explications sur des points plus téchniques.
+---
+
+
+# Conseils généraux
+
+- Si vos images ne proviennent pas d'un scanner, soignez leur prise de vue ! De la qualité des photos dépend directement la lisibilité de vos `pdf` qui en résulteront, ainsi que leur taille :
+  - la page doit être uniformément éclairée (sans ombres) ;
+  - l'appareil photo ou le téléphone doit être parallèle à la feuille ;
+  - la mise au point doit être bonne.
+- Pour la lecture à l'écran, une résolution de l'ordre de 100--150 ppp est suffisante. Ainsi pour prendre en photo une feuille A4 (8.27&Prime; × 11.67&Prime;) une résolution de 2 Mpx (1240 x 1750) devrait être suffisante. Mais il est préférable que vos photos d'origine soient d'une grande résolution (5Mpx-12Mpx), et qu'elles soient compressées fortement (pas forcément en `jpg`). Pour plus d'informations techniques sur la compression voir la section [Les formats d'images dans un PDF](#les-formats-dimages-dans-un-pdf).
+
+# NAPS2 <small>(sous Windows)</small>
+
+[NAPS2](https://www.naps2.com/) est un logiciel libre et gratuit qui vous permet :
+
+- de scanner vos images ou d'utiliser des images présentes dans votre ordinateur sous divers formats ;
+- de changer l'ordre des pages ;
+- de faire pivoter les pages ;
+- de recadrer des images ;
+- d'ajuster le contraste et la luminosité ;
+- de transformer les images en noir et blanc (deux couleurs) ou en niveaux du gris (ce qu'on appelle habituellement « noir et blanc ») ;
+- d'assembler vos images en un `pdf` :
+  - si les pages ont été converties au préalable en noir et blanc, la compression `ccitt` est utilisée et la taille du document est de l'ordre de **20-30 Ko/page** ;
+  - sinon les pages sont stockées en `jpg`, avec ou sans re-compression :
+    - sans re-compression (telles quelles) si elles n'ont pas été éditées et si elles ne dépassent pas une certaine taille (dans ce cas la taille de la page dépend de la résolution et de la compression utilisées à l'origine de ces images),
+    - avec re-compression en `jpg`, auquel cas une compression « standard » avec qualité de l'ordre de 75% est choisie, la taille des pages est alors de l'ordre de **400 Ko/page**.
+
+{{< card-deck >}}
+  {{< card-video id="QzwVFkQp1Vw" descr="Comment assembler des images `jpg` en un `pdf` avec NAPS2.<br>`[ 2 min 08]`" >}}
+  {{< card-video id="Pg1eugV8t3w" descr="Comment produire des `pdf` en noir et blanc de très petite taille (≈ 40 Ko/page) avec NAPS2.<br>`[ 3 min 49]`" >}}
+  {{< card-video id="ssSZ24RM4dA" descr="Comment utiliser les fonctions rudimentaires d'édition de NAPS2 pour améliorer la lisibilité des « scans » `jpg` en niveaux du gris.<br>`[ 5 min 42]`" >}}
+{{< /card-deck >}}
+
+
+**Avantages :**
+
+- C'est un logiciel libre et gratuit.
+- Dans certaines situations (par exemple si on souhaite obtenir des pages en noir et blanc), on peut faire tout de A à Z avec ce logiciel.
+- L'utilisation est assez intuitive, même si l'interface n'est pas très « sexy ».
+- N'a pas vraiment de concurrent gratuit pour ces fonctionnalités.
+- Permet des sauvegardes dans différents formats : `pdf`, `jpg`, `png`, `tiff`...
+- Peut compresser les images en noir et blanc au format `ccitt` de très petite taille.
+- C'est un logiciel de petite taille (≈ 2 Mo) qui peut fonctionner sur des anciens ordinateurs.
+
+**Inconvénient :**
+
+- N'existe que pour Windows.
+- On ne peut pas choisir le taux de compression des images jpeg lors de l'intégration dans le `pdf`.
+- Utilise une compression « standard » et pas `mozjpeg` donc les images compressées sont « relativement grosses ».
+- Ne peut pas compresser en `jpeg2000`.
+- Ne permet pas de changer la résolution des images.
+
+# CIB PDF Brewer <small>(sous Windows)</small>
+
+[CIB PDF Brewer 3](https://pdfbrewer.cib.de/#en) est un logiciel allemand gratuit mais **pas libre** qui vous permet :
+
+- d'assembler plusieurs images en un `pdf` ;
+- d'optimiser un `pdf` existant en comprimant les images au format `jpeg2000` et ainsi obtenir des document de petite taille et de très bonne qualité ;
+- d'assembler plusieurs `pdf` en un ;
+- de supprimer des pages d'un `pdf`.
+
+{{< card-deck >}}
+  {{< card-video id="HZWOuIB2ExQ" descr="Comment assembler des images `jpg` en un `pdf` avec PDF Brewer.<br>`[ 0 min 50]`" class="col-4" >}}
+  {{< card-video id="F_XZuX-GxSY" descr="Comment optimiser des `pdf` avec PDF Brewer pour obtenir une taille de l'ordre de 50 Ko / page).<br>`[ 2 min 08]`" class="col-4" >}}
+{{< /card-deck >}}
+
+**Avantages :**
+
+- C'est un logiciel gratuit.
+- Je ne lui connais pas de concurrent quand il s'agit de compresser un pdf composé d'images.
+- Il est assez facile à utiliser.
+
+**Inconvénient :**
+
+- Ce n'est pas un logiciel libre.
+- N'existe que pour Windows.
+- Ne permet pas de « préparer » (recadrer, ajuster) les images, donc en général il faut qu'il soit utilisé avec d'autres logiciels en amont.
+
+# Optimisez vos images initiales <small>(sous Windows)</small>
+
+Avant d'assembler la série d'images en un document `pdf` il est souvent nécessaire de préparer ces images : de les recadrer, d'ajuster leurs contraste et la luminosité, de les recompresser. Plus la prise des photos est bonne (bonne lumière uniforme, bonne mise au point, bon cadrage), moins vous avez besoin de cette phase.
+
+Si vos images proviennent d'un scanner et pas d'un appareil photo ou d'un téléphone, vous pouvez souvent effectuer ces réglages au moment de la numérisation.
+
+
+## Recadrez vos images
+
+Il y a deux types de recadrage des images `jpeg` :
+- Les recadrages avec décompression/recompression. C'est typiquement ce genre de recadrage qui est utilisé par les éditeurs d'images et qui se justifie si le même logiciel sera utilisé pour les autres ajustements et pour la compression finale. C'est le cas par exemple quand on recadre une photo avec `NAPS2` décrit plus haut.
+- Les recadrages **sans décompression/recompression**. Si vous voulez pouvoir recadrer sans perte et rapidement des images sous **Windows**, je vous conseille d'installer [JPEGCrops](http://ekot.dk/programmer/JPEGCrops/).
+
+[JPEGCrops](http://ekot.dk/programmer/JPEGCrops/) est un logiciel gratuit mais **pas libre** qui vous permet de recadrer les images par lot tout en définissant au préalable les proportions (par exemple format A4).
+
+Vous pouvez obtenir les mêmes résultats en ligne de commande avec le logiciel libre, gratuit et multiplateforme `jpegtran` qui vient pour Windows avec [mozjpeg](https://imagecompressor.io/blog/mozjpeg-guide/).
+
+## Recompressez vos images
+
+Le meilleur algorithme pour la compression `jpeg` à l'heure actuelle est [mozjpeg](https://github.com/mozilla/mozjpeg) de Mozilla. Vous avez deux possibilités pour améliorer la compression de vos `jpeg` :
+
+- soit installer et utiliser [mozjpeg](https://github.com/mozilla/mozjpeg) en ligne de commande (la version binaire pour Windows est disponible sur [imagecompressor.io](https://imagecompressor.io/blog/mozjpeg-guide/)) ;
+- soit utiliser la version en ligne (faite par Google) qui est [squoosh.app](https://squoosh.app/). Cette page web vous permet de compresser des images en utilisant `mozjpeg` avec différents paramètres, de changer la résolution de l'image, tout aussi bien sur un ordinateur que sur un téléphone, en observant en temps réel la différence avec l'image d'origine.
+
+## Redimensionnez vos images
+
+Pour changer la résolution de vos images, vous pouvez utiliser tous les éditeurs d'images, y compris ceux fournis par le système d'opération. Mais si vous voulez pouvoir redimensionner plusieurs images rapidement sur Windows, je vous conseille d'installer [PowerToys](https://github.com/microsoft/PowerToys) qui contient [Image Resizer](https://github.com/microsoft/PowerToys/tree/master/src/modules/imageresizer), extension de l'explorateur de fichiers qui vous permet avec un clic droit de choisir comment redimensionner et avec quelle qualité encoder vos images.
+
+{{< card-deck >}}
+  {{< card-img src="https://raw.githubusercontent.com/microsoft/PowerToys/7399a97/doc/images/imageresizer/resizeNormal.gif" descr="Redimensionner des images avec ImageResizer de PowerToys." class="figure">}}
+  {{< card-img src="https://raw.githubusercontent.com/microsoft/PowerToys/7399a97/doc/images/imageresizer/resizeSettings.gif" descr="Paramétrer ImageResizer de PowerToys." class="figure">}}
+{{< /card-deck >}}
+
+
+Une autre possibilité est d'utiliser [ImageMagick](https://imagemagick.org/script/download.php) en ligne de commande.
+
+# Pour les geeks <small>(toute plate-forme)</small>
+
+Presque toutes les opérations décrites plus haut peuvent être exécutées en ligne de commande de façon identique sur toutes les plates-formes. Voilà quelques une des possibilités.
+
+## Assemblez vos jpeg en pdf
+
+Pour assembler plusieurs `jpg` sans recompression en un `pdf`, vous pouvez utiliser divers outils en ligne de commande. Moi je vous conseille [pdfcpu](https://github.com/pdfcpu/pdfcpu), multi-plate-forme, open source et très performant. La commande à utiliser est :
+
+```bash
+pdfcpu import document.pdf page*.jpg
+```
+
+Il a aussi l'avantage de pouvoir extraire les images d'un `pdf` avec la commande `pdfcpu extract -mode image file.pdf .`
+
+## Compressez vos jpg
+
+Comme déjà dit, rien de mieux que [mozjpeg](https://github.com/mozilla/mozjpeg) de Mozilla (la version binaire pour Windows est disponible sur [imagecompressor.io](https://imagecompressor.io/blog/mozjpeg-guide/)). La commande à effectuer est :
+
+```bash
+cjpeg -quality 70 in.jpg > out.jpg
+```
+
+*Attention : c'est possible que dans le chemin de votre système se trouve le `cjpeg`, auquel cas ça peut poser des problèmes.*
+
+## Redimensionnez vos jpg
+
+Le couteau suisse pour le traitement des images est le logiciel [ImageMagick](https://github.com/imagemagick/imagemagick). La commande pour redimensionner une image avec la commande `convert` (Linux et Mac) ou `magick` (Windows, car `convert` fait partie du système) est :
+
+```bash
+convert in.jpg -resize 2800 -quality 50 out.jpg
+```
+
+pour obtenir une image dont le côté long est 2800 px, et donc si elle est au format A4, ça va faire de l'ordre de 5Mpx. Il est plus simple d'obtenir la même chose avec :
+
+```bash
+convert in.jpg -resize 5000000@  -quality 50 out.jpg
+```
+
+Et si on veut que le fichier redimensionné soit compressé avec `mozjpeg` on peut combiner les deux programmes ainsi.
+
+```bash
+convert in.jpg -resize 5000000@ pnm:- | cjpeg -quality 70 > out.jpg
+```
+
+# Les formats d'images dans un PDF
+
+- Les fichiers `pdf` peuvent contenir des images matricielles de différents formats. **Le choix du format** dépend de la résolution, du type de document, des logiciels dont vous disposez, et un peu des goûts personnels, comme suit :
+  - **[ccitt](https://en.wikipedia.org/wiki/Group_4_compression)** (fichiers `.tiff`, utilisé aussi par les fax) est à préférer si votre document est **en noir et blanc (sans nuances de gris)**, typiquement si vous avez écrit avec une seule couleur sur une feuille blanche, et si **la résolution est assez grande**, disons **plus de 8Mpx** (même si 5Mpx devrait être suffisant). Pour générer un `pdf` avec des images en noir et blanc (deux couleurs seulement) vous pouvez utiliser **sous Windows** le logiciel libre et gratuit [NAPS2](https://www.naps2.com/). Avec ce format, vous pouvez espérer obtenir des documents de bonne lisibilité dont la taille est de l'ordre de **20-40 Ko/page** (format A4).
+  - **[jpeg2000](https://en.wikipedia.org/wiki/JPEG_2000)** (fichiers `.jpx`) est à préférer si votre document est en couleurs, en tonalités du gris, ou d'une résolution pas très grande, **et si vous avez des logiciels qui supportent ce format**. Pour générer un `pdf` avec cette compression vous pouvez utiliser **sous Windows** le logiciel gratuit, mais pas libre, [CIB PDF Brewer 3](https://pdfbrewer.cib.de/#en). Avec ce format vous pouvez espérer obtenir des documents de bonne lisibilité dont la taille est de l'ordre de **50-100 Ko/page** (format A4).
+  - **[jpg](https://en.wikipedia.org/wiki/JPEG)** est à préférer si vos logiciels ne vous permettent pas de compresser vos scans en `jpx`. Pour combiner plusieurs images `jpg` en un `pdf` vous pouvez utiliser **sous Windows** le logiciel libre et gratuit [NAPS2](https://www.naps2.com/). Avec ce format vous pouvez espérer obtenir des documents de bonne lisibilité dont la taille est de l'ordre de **150-250 Ko/page** si vous utilisez `mozjpeg` pour la compression, ou de l'ordre de **350-450 Ko/page** si vous utilisez une compression `jpeg` « standard ».
+
+*Note : Les documents `pdf` peuvent contenir aussi des pages en `png` mais c'est rarement le bon choix pour des pages manuscrites. C'est un format qui peut convenir pour des BDs scannées, par exemple. Il y a aussi [jbig2](https://fr.wikipedia.org/wiki/JBIG2).*
+

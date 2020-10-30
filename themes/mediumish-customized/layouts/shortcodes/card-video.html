@@ -1,0 +1,18 @@
+{{- $id := .Get "id" | default (.Get 0) -}}
+{{- $descr := .Get "descr" | default (.Get 1) -}}
+{{- $class := .Get "class" | default (.Get 2) }}
+{{- $autoplay := .Get "autoplay" | default 0 -}}
+{{- $loop := .Get "loop" | default 0 -}}
+{{- if $loop -}}
+  {{- $autoplay := 1 -}}
+{{- end -}}
+
+
+<div class="card {{ with $class }}{{ . }}{{ end }}">
+  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+    <iframe src="https://www.youtube.com/embed/{{ $id }}{{ if $autoplay }}?rel=0&version=3&autoplay=1{{ if $loop }}&loop=1{{ end }}{{ end }}" {{ if not $class }}style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" {{ end }}allowfullscreen title="YouTube Video"></iframe>
+  </div>
+  <div class="card-body">
+    <p class="card-text">{{ $descr | markdownify }}</p>
+  </div>
+</div>

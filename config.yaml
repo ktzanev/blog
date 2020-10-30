@@ -1,0 +1,16 @@
+baseURL: https://ktzanev.github.io/blog/
+languageCode: fr-FR
+title: Blog
+theme: mediumish-customized
+summaryLength: 25
+copyright: Kroum Tzanev - Libre de droit.
+enableEmoji: true
+params:
+  logo: /images/logo.svg
+  description: Mon blog semi-pro.
+  social:
+    github: ktzanev
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

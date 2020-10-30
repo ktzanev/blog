@@ -1,0 +1,11 @@
+{{- $src := .Get "src" | default (.Get 0) -}}
+{{- $descr := .Get "descr" | default (.Get 1) -}}
+{{- $class := .Get "class" | default (.Get 3) }}
+
+
+<div class="card mb-4 {{ with $class }}{{ . }}{{ end }}">
+  <a href="{{ $src | relURL }}"><img class="card-img-top" src="{{ $src  | relURL }}" alt="{{ $descr }}"></a>
+  <div class="card-body">
+    <p class="card-text">{{ $descr | markdownify }}</p>
+  </div>
+</div>

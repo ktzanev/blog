@@ -1,0 +1,91 @@
+---
+title: Utiliser votre téléphone pour scanner des pages manuscrites
+date: 2020-04-17
+tags:
+- android
+- pdf
+- jpg
+- scan
+summary: "Il existent plusieurs applications pour « scanner » des pages manuscrites en PDF en utilisant votre téléphone, mais elles ne se valent pas toutes. La qualité et la taille des pdf produits peut varier considérablement. Ici on présente essentiellement deux de ces applications gratuites : Genius Scan et doXisafe. Malheureusement il n'existe pas d'alternative open source à ces applications."
+---
+
+
+# Conseils généraux
+
+- Une résolution de 100 ppp et 150 ppp est suffisante. Ainsi pour prendre en photo une feuille A4 (8.27" × 11.67") une résolution de 2 Mpx (1240 x 1750) est suffisante. Mais, voir plus bas, souvent il est préférable d'avoir une résolution de 5Mpx-12Mpx fortement compressée en `jpeg` que d'avoir 2Mpx avec un faible taux de compression.
+- Il est important d'avoir un bon éclairage uniforme, encore plus que d'avoir un éclairage fort. Il ne faut pas hésiter à utiliser la lumière de l'appareil photo.
+- Il est préférable que les pages sur lesquelles vous écrivez soient blanches (à proscrire les petits et les grands carreaux) car ceci augmente la lisibilité et diminue la taille des scans. Si nécessaire vous pouvez placer une feuille avec des lignes derrière la feuille blanche pour faciliter une écriture horizontale.
+- La taille raisonnable pour l'image d'une page A4 se situe entre 150Ko et 350Ko. Au-delà de 500Ko, ne parlons pas de 3Mo qui est souvent la taille d'une image par défaut d'un téléphone actuel, c'est du gaspillage de ressources.
+- Pour obtenir des images lisibles de petite taille, plusieurs pistes sont à privilégier :
+  - il faut utiliser des logiciels qui ont de bons algorithmes de compression des images ;
+  - la qualité initiale de l'image est très importante : une image bien nette et bien contrastée permet une compression plus grande en restant lisible.
+  - souvent le `jpeg` donne de meilleurs résultats que les `gif` et les `png` pour les scans des pages manuscrites ;
+  - s'il faut choisir entre réduire la résolution de l'image ou baisser la qualité du `jpeg`, il est souvent préférable de choisir la deuxième option *(contrairement à l'intuition première)*.
+
+# PDF ou JPEG
+
+Quand vous scannez un document en `pdf`, en réalité le `pdf` est composé d'une ou plusieurs images et le plus souvent ces images sont des `jpeg`. Les scanners modernes ont des algorithmes très performants qui découpent la page en plusieurs images et utilisent différentes méthodes de compression pour les différentes zones et ainsi peuvent produire des `pdf` à moins de 100Ko par page.
+
+Par contre les logiciels dans les téléphones portables qui scannent en `pdf` ne font qu'assembler plusieurs `jpeg` en un `pdf`. Souvent ces `pdf` sont entre 150Ko et 350Ko par page.
+
+En conclusion, si vous avez une seule page à scanner, il est probablement plus simple de le faire en `jpeg`, et si vous avez tout un document à scanner le `pdf` est à privilégier.
+
+# Solutions
+
+## Plusieurs pages en pdf
+
+Dans le cas de plusieurs pages il est préférable de produire un unique `pdf` à la place de plusieurs images `jpeg`. Pour cela il existe plusieurs logiciels gratuits, compatible Android et iOS.
+
+### CamScanner
+
+**Ce logiciel est à proscrire.** C'est un logiciel assez populaire mais qui a plusieurs inconvénients : les fichiers produits sont d'une taille médiocre, dans la version gratuite une filigrane « Scannée avec CamScanner » est rajouté en bas de la page, la version payante est avec abonnement et pas un achat unique.
+
+### Genius Scan
+
+Il s'agit d'un logiciel [français](https://www.thegrizzlylabs.com/about) très intuitif et performant, disponible pour [Android](https://play.google.com/store/apps/details?id=com.thegrizzlylabs.geniusscan.free) et [iOS](https://apps.apple.com/fr/app/genius-scan-pdf-scanner/id377672876), mais qui malheureusement dans sa version gratuite a quelques limitations et contient des publicités.
+
+<div class="row">
+  <div class="col-6 offset-3 mb-4">
+  {{< card-video id="UH7uooEHMN0" descr="Comment scanner des documents de plusieurs pages en `pdf` avec Genius Scan." class="">}}
+  </div>
+</div>
+
+
+### doXisafe
+
+Il s'agit d'un logiciel [allemand](https://ciblabs.es/en/about-us/) performant, disponible pour [Android](https://play.google.com/store/apps/details?id=de.cib.doxisafe.android) et [iOS](https://apps.apple.com/gb/app/doxisafe/id1157951562), qui permet beaucoup de paramétrages, mais ceci est au prix d'une utilisation plus complexes que Genius Scan.
+
+
+<div class="row">
+  <div class="col-6 offset-3 mb-4">
+  {{< card-video id="7yE6DoXcfdE" descr="Comment scanner des documents de plusieurs pages en `pdf` avec doXisafe." class="">}}
+  </div>
+</div>
+
+## Page unique en jpeg
+
+Si vous voulez scanner une unique page vous pouvez bien sûr utilisez les méthodes précédemment décrites pour produire un `pdf`, mais vous pouvez aussi photographier votre document en `jpeg`. Dans cette section on vous explique comment produire un `jpeg` de taille raisonnable, c.-à-d. pas plus de 350 Ko pour une page A4.
+
+###  Open Camera
+
+L'application Open Camera sous Android permet des réglages qui améliorent la qualité et diminuent la taille des « scans » de documents manuscrits.
+
+<div class="row">
+  <div class="col-6 offset-3 mb-4">
+  {{< card-video id="NT2iglRQJUg" descr="Comment paramétrer et prendre en photo des pages manuscrites avec Open Camera sous Android." class="">}}
+  </div>
+</div>
+
+
+###  Mozjpeg (Squoosh.app)
+
+Le meilleur algorithme pour la compression `jpeg` à l'heure actuelle est [mozjpeg](https://github.com/mozilla/mozjpeg) de Mozilla. L'utilisation en ligne de commande n'étant pas bien pratique sur un téléphone je vous conseille d'utiliser la version en ligne (faite par Google) qui est [squoosh.app](https://squoosh.app/). Cette page web vous permet de compresser des images en utilisant `mozjpeg` avec différents paramètres, de changer la résolution de l'image, tout aussi bien sur un téléphone que sur un ordinateur, en observant en temps réel la différence avec l'image d'origine.
+
+Par contre avant de compresser votre image avec `mozjpeg` il est souhaitable d'augmenter son contraste et d'ajuster sa luminosité. Et si nécessaire de redresser la perspective. Si vous êtes sur Android je vous conseille d'utiliser l'application [Open Camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) qui permet de faire tous ces réglages.
+
+<div class="row">
+  <div class="col-6 offset-3 mb-4">
+  {{< card-video id="g2PK5_NM6-s" descr="Utilisation de Open Camera sous Android an combinaison avec Squoosh (la version en ligne de `mozjpeg`)." class="">}}
+  </div>
+</div>
+

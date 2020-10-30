@@ -1,0 +1,6 @@
+{{ $user := .Get 0 }}
+{{ range where $.Site.Pages "File.BaseFileName" $user -}}
+  <a href="{{.RelPermalink}}">{{ index .Params "p" | default (printf "%s." (substr .Params.prénom 0 1))}} {{.Params.nom}}</a>
+{{- else -}}
+  {{ $user | upper }}
+{{- end }}
