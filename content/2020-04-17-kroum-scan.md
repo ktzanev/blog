@@ -12,7 +12,6 @@ summary: "Il existent plusieurs applications pour « scanner » des pages manu
 
 # Conseils généraux
 
-- Une résolution de 100 ppp et 150 ppp est suffisante. Ainsi pour prendre en photo une feuille A4 (8.27" × 11.67") une résolution de 2 Mpx (1240 x 1750) est suffisante. Mais, voir plus bas, souvent il est préférable d'avoir une résolution de 5Mpx-12Mpx fortement compressée en `jpeg` que d'avoir 2Mpx avec un faible taux de compression.
 - Il est important d'avoir un bon éclairage uniforme, encore plus que d'avoir un éclairage fort. Il ne faut pas hésiter à utiliser la lumière de l'appareil photo.
 - Il est préférable que les pages sur lesquelles vous écrivez soient blanches (à proscrire les petits et les grands carreaux) car ceci augmente la lisibilité et diminue la taille des scans. Si nécessaire vous pouvez placer une feuille avec des lignes derrière la feuille blanche pour faciliter une écriture horizontale.
 - La taille raisonnable pour l'image d'une page A4 se situe entre 150Ko et 350Ko. Au-delà de 500Ko, ne parlons pas de 3Mo qui est souvent la taille d'une image par défaut d'un téléphone actuel, c'est du gaspillage de ressources.
@@ -21,6 +20,8 @@ summary: "Il existent plusieurs applications pour « scanner » des pages manu
   - la qualité initiale de l'image est très importante : une image bien nette et bien contrastée permet une compression plus grande en restant lisible.
   - souvent le `jpeg` donne de meilleurs résultats que les `gif` et les `png` pour les scans des pages manuscrites ;
   - s'il faut choisir entre réduire la résolution de l'image ou baisser la qualité du `jpeg`, il est souvent préférable de choisir la deuxième option *(contrairement à l'intuition première)*.
+
+*Note : Une résolution de 100 ppp et 150 ppp est suffisante. Ainsi pour prendre en photo une feuille A4 (8.27" × 11.67") une résolution de 2 Mpx (1240 x 1750) est suffisante. Mais, voir plus bas, souvent il est préférable d'avoir une résolution de 5Mpx-12Mpx fortement compressée en `jpeg` que d'avoir 2Mpx avec un faible taux de compression.*
 
 # PDF ou JPEG
 
