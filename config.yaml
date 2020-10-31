@@ -6,7 +6,7 @@ summaryLength: 25
 copyright: Kroum Tzanev - Libre de droit.
 enableEmoji: true
 params:
-  logo: /images/logo.svg
+  favicon: /images/kt_inverse.png
   description: Mon blog semi-pro.
   social:
     github: ktzanev
