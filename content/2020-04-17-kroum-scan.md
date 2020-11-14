@@ -1,6 +1,6 @@
 ---
 title: Utiliser votre téléphone pour scanner des pages manuscrites
-date: 2020-04-17
+date: 2020-11-14
 tags:
 - android
 - pdf
@@ -40,6 +40,12 @@ Dans le cas de plusieurs pages il est préférable de produire un unique `pdf` �
 ### CamScanner
 
 **Ce logiciel est à proscrire.** C'est un logiciel assez populaire mais qui a plusieurs inconvénients : les fichiers produits sont d'une taille médiocre, dans la version gratuite une filigrane « Scannée avec CamScanner » est rajouté en bas de la page, la version payante est avec abonnement et pas un achat unique.
+
+### Smallpdf
+
+Il s'agit d'un logiciel [suisse](https://smallpdf.com/about) très intuitif et performant, disponible pour [Android](https://play.google.com/store/apps/details?id=com.smallpdf.app.android) et [iOS](https://apps.apple.com/us/app/smallpdf/id1485259500) et qui a l'avantage (par rapport à Genius Scan) de ne pas avoir des pubs, mais qui a le désavantage (par rapport à doXisafe) d'utiliser `jpeg` et non `jpeg2000`.
+
+_(vidéo de démonstration à venir...)_
 
 ### Genius Scan
 
