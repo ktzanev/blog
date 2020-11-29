@@ -30,6 +30,9 @@
     padding: 1rem;
     font-size: .84em;
 }
+code {
+    font-size:inherit;
+}
 @media(min-width: 769px){
     .md-nopad-right{
         padding-right: 0px !important;

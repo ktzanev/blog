@@ -22,8 +22,7 @@ L'idée est très simple : posez votre téléphone à une vingtaine de centimè
 
 # Utilisations possibles
 
-<video src="/phone/possible.mp4" muted autoplay loop playsinline class="col-8 offset-2 float-lg-right ml-lg-5 col-lg-4">
-</video>
+{{< videotag src="/phone/possible.mp4" class="col-8 offset-2 float-lg-right ml-lg-5 col-lg-4" >}}
 
 On peut utiliser le téléphone ainsi installé pour :
 
@@ -65,7 +64,7 @@ Je n'ai pas testé, mais probablement BigBlueButton (utilisé par [PLM webconf](
 
 ### Diffuser sur des plates-formes vidéo
 
-Vous pouvez diffuser en direct votre caméra sur des services vidéo tels YouTube, Viméo, Dailymotion ... en utilisant des logiciels spécialisés comme [Streamlabs](https://streamlabs.com/mobile-app) *(la version mobile de OBS)* ou autres.
+Vous pouvez diffuser en direct votre caméra sur des services vidéo tels YouTube, Viméo, Dailymotion... en utilisant des logiciels spécialisés comme [Streamlabs](https://streamlabs.com/mobile-app) *(la version mobile de OBS)* ou autres.
 
 **Avantages :**
 
@@ -85,7 +84,7 @@ Vous pouvez diffuser en direct votre caméra sur des services vidéo tels YouTub
 
 Vous pouvez simplement enregistrer une vidéo avec ce que vous écrivez et commenter en même temps. Il peut s'agir d'une longue vidéo de cours ou d'un exposé, ou d'une vidéo de quelques secondes pour illustrer quelque chose de façon dynamique.
 
-{{< youtube id="jYCSzVA4Y6U" class="col-8 mx-auto  text-center float-lg-right ml-lg-5 col-lg-4" descr="Cette vidéo de 23 secondes pèse 1Mb, car elle a été enregistrée avec 10 images/s et un débit de 350Kbps sans son." >}}
+{{< youtube id="jYCSzVA4Y6U" class="col-8 mx-auto text-center float-lg-right ml-lg-5 col-lg-4" descr="Cette vidéo de 23 secondes pèse 1Mb, car elle a été enregistrée avec 10 images/s et un débit de 350Kbps sans son." >}}
 
 **Avantages :**
 
@@ -107,8 +106,6 @@ Vous pouvez simplement enregistrer une vidéo avec ce que vous écrivez et comme
 - régler le débit à moins de 1Mo/s (si possible);
 - si vous allez faire une vidéo très courte d'illustration, couper le son.
 
-
-
 ### Prendre une photo
 
 Vous pouvez ainsi insérer un dessin fait à la main dans un PDF, poster une formule sur un chat ou prendre en photos vos écrits pendant un cours en direct pour diffuser après les notes.
@@ -117,8 +114,37 @@ Vous pouvez ainsi insérer un dessin fait à la main dans un PDF, poster une for
 
 ## Via l'ordinateur
 
-Une fois affiché sur l'ordinateur vous pouvez partager l'écran de votre téléphone comme vous partagez toute autre application (PDF, GeoGebra, Jupyter Notebook ...). La seule chose à savoir est comment afficher l'écran du téléphone sur son ordinateur. Pour les téléphones sous Android j'ai fait un tutoriel :
+Une fois affiché sur l'ordinateur vous pouvez partager l'écran de votre téléphone comme vous partagez toute autre application (PDF, GeoGebra, Jupyter Notebook...). La seule chose à savoir est comment afficher l'écran du téléphone sur son ordinateur.
 
+### Afficher l'écran d'un smartphone Android sur ordinateur
+
+Il y a essentiellement deux méthodes : par câble USB ou via Wi-Fi.
+
+#### Par câble USB
+
+Je connais une seule application qui permet de faire ça, le [scrcpy](https://github.com/Genymobile/scrcpy). Les instructions pour son installation, ainsi que du débogueur `adb`, sont sur la page du projet : pour [Linux](https://github.com/Genymobile/scrcpy#linux), pour [Mac](https://github.com/Genymobile/scrcpy#macos) ou pour [Windows](https://github.com/Genymobile/scrcpy#windows).
+
+Une fois installé, vous devez :
+1. [Autoriser votre smartphone Android à être débogué par USB](https://www.google.fr/search?q=android%20autoriser%20le%20debogage%20usb).
+2. Brancher votre téléphone avec un câble USB à votre ordinateur.
+3. Lancer `scrcpy` : normalement une fenêtre affichant l'écran de votre téléphone s'ouvre.
+
+#### Via Wi-Fi
+
+Il existe plusieurs logiciels pour diffuser l'écran de votre smartphone via le réseau. Moi j'utilise [Screen Stream over HTTP](https://play.google.com/store/apps/details?id=info.dvkr.screenstream).
+
+Pour les téléphones sous Android j'ai fait un tutoriel :
+
+Une fois installé, vous devez :
+1. Connecter votre téléphone sur le même réseaux que votre ordinateur (sans ça la suite ne fonctionnera pas).
+2. Lancer `Screen Stream over HTTP` sur votre téléphone, puis activer la diffusion.
+3. Ouvrer dans votre navigateur l'adresse indiqué dans `Screen Stream over HTTP` qui devrait être de la forme ` http://192.168.X.XX:8080`.
+
+L'avantage de cette méthode par rapport à la connexion par USB est ça simplicité (pas besoin d'activer le mode développeur du téléphone ni d'installer un logiciel sur l'ordinateur). Son principal inconvénient est l'utilisation d'une bonne partie de la bande passante et l'obligation d'avoir l'ordinateur et le téléphone connectés sur le même réseaux.
+
+#### Le tutoriel vidéo
+
+Ces deux méthodes pour afficher l'écran de votre smartphone Android sur un PC sous Windows sont présentés dans ce tutoriel :
 
 <div class="row">
   <div class="col-6 offset-3 mb-4">
@@ -126,7 +152,11 @@ Une fois affiché sur l'ordinateur vous pouvez partager l'écran de votre télé
   </div>
 </div>
 
-### Avec un partage d'écran ou de fenêtre
+### Afficher l'écran d'un iPhone sur un Mac
+
+Je n'ai pas d'iPhone mais je sais que [c'est possible](https://www.google.com/search?q=mirror+iphone+screen+on+mac).
+
+### Partage direct d'écran ou de fenêtre
 
 Comme déjà dit, une fois l'écran de votre téléphone affiché sur l'ordinateur, vous pouvez :
 
@@ -141,12 +171,12 @@ Comme déjà dit, une fois l'écran de votre téléphone affiché sur l'ordinate
 
 **Avantages :**
 
-- vous pouvez utiliser une application qui permet d'avoir une mise au point manuelle et autres réglages qui permettent d'améliorer la qualité de l'image (tels [HedgeCam 2](https://play.google.com/store/apps/details?id=com.caddish_hedgehog.hedgecam2) ou [Open Camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) pour Android) ;
+- vous pouvez utiliser une application qui permet d'avoir une mise au point manuelle et autres réglages qui permettent d'améliorer la qualité de l'image (tels [HedgeCam 2](https://play.google.com/store/apps/details?id=com.caddish_hedgehog.hedgecam2) ou [Open Camera](https://play.google.com/store/apps/details?id=net.sourceforge.opencamera) pour Android) ;
 - vous avez la possibilité de partager d'autres applications en plus de votre écriture.
 
 **Inconvénients :**
 
-- il faut apprendre comment afficher l'écran de son téléphone sur son ordinateur ;
+- il faut apprendre comment afficher l'écran de son téléphone sur son ordinateur ;
 - si vous le faites par USB (ce que je vous conseille), il y a encore un câble qui traîne.
 
 **Conseils :**
@@ -155,18 +185,18 @@ Comme déjà dit, une fois l'écran de votre téléphone affiché sur l'ordinate
 - si nécessaire activez la lampe de votre téléphone pour éclairer la feuille ;
 - fixez la rotation de votre téléphone en « paysage ».
 
-### Avec OBS
+### Partage avec OBS
 
 [OBS Studio](https://obsproject.com/), abrégé en OBS, est un logiciel libre et open source de capture d'écran et de streaming pour Linux, MacOS et Windows. Vous pouvez l'utiliser pour diffuser votre écran et/ou votre webcam sur un serveur comme YouTube.
 
-Il vous permet de :
+Il vous permet de :
 
-- composer sur un seul écran plusieurs fenêtres (votre écriture à la main, votre webcam, un fichier pdf ...) ;
-- appliquer des filtres sur vos fenêtres, comme par exemple « transformer en noir et blanc », « augmenter le contraste », « n'afficher qu'une portion de la fenêtre » et ainsi de suite ;
-- préparer en avance des dispositions des fenêtres que vous pouvez utiliser lors de vos cours ;
+- composer sur un seul écran plusieurs fenêtres (votre écriture à la main, votre webcam, un fichier pdf ...) ;
+- appliquer des filtres sur vos fenêtres, comme « transformer en noir et blanc », « augmenter le contraste », « n'afficher qu'une portion de la fenêtre » et ainsi de suite ;
+- préparer en avance des dispositions des fenêtres que vous pouvez utiliser lors de vos cours ;
 - diffuser en direct et/ou enregistrer votre cours.
 
-Voici quelques tutoriels sur OBS que j'ai faits ces dernières semaines :
+Voici quelques tutoriels sur OBS que j'ai faits ces dernières semaines :
 
 {{< card-deck >}}
   {{< card-video id="VmQBG8oVWWg" descr="Préparation d'un cours en ligne avec OSB Studio" >}}
@@ -178,7 +208,7 @@ Voici quelques tutoriels sur OBS que j'ai faits ces dernières semaines :
 # Conseils
 
 - Le téléphone ne doit pas être placé trop haut (à part si vous zoomez), car sinon le texte sera trop petit. La partie visible doit être de l'ordre de A6 (1/4 de A4).
-- Si possible il faut fixer le focus et la mesure de la lumière, sinon chaque fois que votre main va rentrer dans le champs de vision ça va entraîner une perte du focus et un changement de la luminosité.
+- Si possible il faut fixer le focus et la mesure de la lumière, sinon chaque fois que votre main va rentrer dans le champ de vision ça va entraîner une perte du focus et un changement de la luminosité.
 - Vous pouvez agrafer plusieurs 1/4 de feuille en un livret et scotcher la dernière à la table, pour que ça ne bouge pas quand vous écrivez.
 - Il est préférable d'utiliser des feuilles blanches, car les feuilles à carreaux gènent la lisibilité et augmentent la taille de la vidéo.
 - Si vous écrivez au crayon à papier, privilégiez les mines souples (2B), plus visibles. Sinon, utilisez des stylos Frixion (effaçables).
